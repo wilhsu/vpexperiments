@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/cds0dbk.css">
+        
+
+        <style>
+            .textbox{
+                font-size: 100px;
+                position: fixed;
+                /* opacity: .2; */
+                margin: 0;
+
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+
+                display: block;
+                line-break: auto;
+                text-wrap: wrap;
+            }
+
+            .text0, .text1, .text2, .text3, .text4, .text5{
+                opacity: .2;
+            }
+
+            .textDisplay{
+                visibility: hidden;
+            }
+
+            .resizableInput{
+                resize: both;
+                display: inline-block;
+                overflow: auto;
+                white-space: nowrap;
+                padding: 0;
+                margin: 0;
+            }
+
+            .resizableInput > input{
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                margin: 0;
+                line-break: auto;
+                text-wrap: wrap;
+            }
+
+            #textInput{
+                /* height: 200px; */
+                /* resize: both; */
+                display: inline-block;
+            }
+
+            #controls{
+                position: absolute;
+                background-color: chartreuse;
+            }
+
+            #font0{
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            #font1{
+                font-family: 'Helvetica';
+            }
+
+            #font2{
+                font-family: "EB Garamond", serif;
+                font-optical-sizing: auto;
+                /* font-weight: <weight>; */
+                font-style: normal;
+            }
+
+            #font3{
+                font-family: Arial;
+            }
+
+            #font4{
+                font-family: "ltc-bodoni-175", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            #font5{
+                font-family: "futura-pt", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="displayText">
+
+
+            <p class="textbox text0" id="font0">A</p>
+            <p class="textbox text1" id="font1">A</p>
+            <p class="textbox text2" id="font2">A</p>
+            <p class="textbox text3" id="font3">A</p>
+            <p class="textbox text4" id="font4">A</p>
+            <p class="textbox text5" id="font5">A</p>
+
+
+            <!-- <input type="text" class="textbox" id="times" value="A">
+            <input type="text" class="textbox" id="helvetica" value="A"> -->
+        </div>
+
+        <div id="controls">
+            <div>
+                <input type="range" id="fontSizeSlider" min="0" max="1000" value="100">
+                <label for="fontSizeSlider" id="fontSizeDisplay">100px</label>
+            </div>
+            <span class="resizableInput">
+                <input type="text" id="textInput" placeholder="type something here..."> 
+            </span>
+            <div>
+                <input type="range" id="opacitySlider" min="0" max="100" value="20" >
+                <label for="opacitySlider" id="opacityDisplay">20%</label>
+            </div>
+            <div>
+                <input type="checkbox" name="Times New Roman" checked onchange="toggleTextVisibility()">
+                <label>Times New Roman</label>
+            </div>
+            <div>
+                <input type="checkbox" name="Helvetica" checked onchange="toggleTextVisibility()">
+                <label>Helvetica</label>
+            </div>
+            <div>
+                <input type="checkbox" name="Garamond" checked onchange="toggleTextVisibility()">
+                <label>Garamond</label>
+            </div>
+            <div>
+                <input type="checkbox" name="Arial" checked onchange="toggleTextVisibility()">
+                <label>Arial</label>
+            </div>
+            <div>
+                <input type="checkbox" name="Bodoni" checked onchange="toggleTextVisibility()">
+                <label>Bodoni</label>
+            </div>
+            <div>
+                <input type="checkbox" name="Futura" checked onchange="toggleTextVisibility()">
+                <label>Futura</label>
+            </div>
+            
+        </div>
+
+
+        <script>
+            const slider = document.getElementById('fontSizeSlider');
+            const opSlider = document.getElementById('opacitySlider')
+            const sizeDisplay = document.getElementById('fontSizeDisplay');
+            const inputText = document.getElementById('textInput');
+            // const fontArray = ['font0', 'font1', 'font2', 'font3'];
+            // const textBox = document.getElementsByClassName('textbox');
+
+            const text1 = document.getElementById('font0');
+            const text2 = document.getElementById('font1');
+            const text3 = document.getElementById('font2');
+            const text4 = document.getElementById('font3');
+            const text5 = document.getElementById('font4');
+            const text6 = document.getElementById('font5');
+
+            // opSlider.addEventListener("input", () => {
+            //     const opacity = opSlider.value;
+            //     text1.style.opacity = `${opacity}%`;
+            // })
+
+
+            opSlider.addEventListener("change", function() {
+                text1.style.opacity = this.value / this.max;
+                text2.style.opacity = this.value / this.max;
+                text3.style.opacity = this.value / this.max;
+                text4.style.opacity = this.value / this.max;
+                text5.style.opacity = this.value / this.max;
+                text6.style.opacity = this.value / this.max;
+
+                opacityDisplay.innerText = this.value + "%";
+            });
+
+            slider.addEventListener("input", () => {
+                const size = slider.value;
+                text1.style.fontSize = `${size}px`;
+                text2.style.fontSize = `${size}px`;
+                text3.style.fontSize = `${size}px`;
+                text4.style.fontSize = `${size}px`;
+                text5.style.fontSize = `${size}px`;
+                text6.style.fontSize = `${size}px`;
+               
+
+                sizeDisplay.innerText = size + 'px';
+                // console.log(slider.value);
+            }); 
+
+            const inputHandler = function(e) {
+                text1.innerText = e.target.value;
+                text2.innerText = e.target.value;
+                text3.innerText = e.target.value;
+                text4.innerText = e.target.value;
+                text5.innerText = e.target.value;
+                text6.innerText = e.target.value;
+            }
+
+            inputText.addEventListener('input', inputHandler);
+            inputText.addEventListener('propertychange', inputHandler);
+
+            // const cbox = document.querySelectorAll(
+            //     "input[type=checkbox]"
+            // );
+            // console.log("checkbox checked");
+
+            // // function hideText() {
+
+            // function hideText(){
+            //     console.log("toggle");
+
+            //     console.log(cbox);
+            //     for (let i=0; i < 4; i++){
+            //         if (cbox[i].checked){ 
+                        
+            //             console.log("true");
+            //             // console.log(cbox.value[0].checked);
+            //             // const textBox = document.getElementById("font"+i);
+            //             // console.log(textBox);
+            //             // textBox.classList.add("textDisplay");
+            //         } else {
+            //             console.log("false");
+            //             // textBox.classList.remove("textDisplay");
+            //         }
+            //     }
+            // };
+
+            // Select all checkboxes
+            const cboxes = document.querySelectorAll("input[type=checkbox]");
+
+            // Function to handle checkbox change
+            function toggleTextVisibility() {
+                
+                // const textBoxes = document.getElementsByClassName('textbox');
+                for (let j=0; j <= 5; j++){
+                    const textBoxId = "font" + j;
+                    const textBoxes = document.getElementById(textBoxId);
+                    const isChecked = cboxes[j].checked;
+
+                // Loop through all textboxes and apply class based on checkbox state
+                // for (let i = 1; i < 3; i++) {
+
+                    console.log(cboxes);
+
+                    if (isChecked) {
+                        // console.log("true");
+                        // textBoxes[i].style.opacity = ".2";
+                        textBoxes.classList.remove('textDisplay');
+                         // Add the class to show
+                    } else {
+                        // console.log("false");
+                         // Remove the class to hide
+                         
+                         textBoxes.classList.add('textDisplay');
+                        // textBoxes[i].style.opacity = "0";
+                    }
+                // }
+            }
+            }
+            
+
+            // Add event listeners to all checkboxes
+            cboxes.forEach(function(cbox) {
+                cbox.addEventListener('change', toggleTextVisibility);
+            });
+
+            // cbox.addEventListener('change', function(){
+            //     if(cbox.checked) {
+            //         text1.style.opacity = ".2";
+            //     } else {
+            //         text1.style.opacity = "0";
+            //     }
+            // })
+
+            // cbox.addEventListener('change', function(){
+            //     if(cbox.checked) {
+            //         text2.style.opacity = ".2";
+            //     } else {
+            //         text2.style.opacity = "0";
+            //     }
+            // })
+            // cbox.addEventListener('input');
+
+            // if (cbox.checked = "true"){
+            //     text1.style.backgroundColor = "red";
+
+            // } else if (cbox.unchecked = "true"){
+            //     text1.style.backgroundColor = "blue";
+            // }
+
+
+        </script>
+    </body>
+</html>
