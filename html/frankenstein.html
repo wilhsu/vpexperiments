@@ -172,8 +172,7 @@
             const opSlider = document.getElementById('opacitySlider')
             const sizeDisplay = document.getElementById('fontSizeDisplay');
             const inputText = document.getElementById('textInput');
-            // const fontArray = ['font0', 'font1', 'font2', 'font3'];
-            // const textBox = document.getElementsByClassName('textbox');
+
 
             const text1 = document.getElementById('font0');
             const text2 = document.getElementById('font1');
@@ -181,11 +180,6 @@
             const text4 = document.getElementById('font3');
             const text5 = document.getElementById('font4');
             const text6 = document.getElementById('font5');
-
-            // opSlider.addEventListener("input", () => {
-            //     const opacity = opSlider.value;
-            //     text1.style.opacity = `${opacity}%`;
-            // })
 
 
             opSlider.addEventListener("change", function() {
@@ -224,34 +218,7 @@
 
             inputText.addEventListener('input', inputHandler);
             inputText.addEventListener('propertychange', inputHandler);
-
-            // const cbox = document.querySelectorAll(
-            //     "input[type=checkbox]"
-            // );
-            // console.log("checkbox checked");
-
-            // // function hideText() {
-
-            // function hideText(){
-            //     console.log("toggle");
-
-            //     console.log(cbox);
-            //     for (let i=0; i < 4; i++){
-            //         if (cbox[i].checked){ 
-                        
-            //             console.log("true");
-            //             // console.log(cbox.value[0].checked);
-            //             // const textBox = document.getElementById("font"+i);
-            //             // console.log(textBox);
-            //             // textBox.classList.add("textDisplay");
-            //         } else {
-            //             console.log("false");
-            //             // textBox.classList.remove("textDisplay");
-            //         }
-            //     }
-            // };
-
-            // Select all checkboxes
+            
             const cboxes = document.querySelectorAll("input[type=checkbox]");
 
             // Function to handle checkbox change
@@ -283,38 +250,11 @@
                 // }
             }
             }
-            
 
             // Add event listeners to all checkboxes
             cboxes.forEach(function(cbox) {
                 cbox.addEventListener('change', toggleTextVisibility);
             });
-
-            // cbox.addEventListener('change', function(){
-            //     if(cbox.checked) {
-            //         text1.style.opacity = ".2";
-            //     } else {
-            //         text1.style.opacity = "0";
-            //     }
-            // })
-
-            // cbox.addEventListener('change', function(){
-            //     if(cbox.checked) {
-            //         text2.style.opacity = ".2";
-            //     } else {
-            //         text2.style.opacity = "0";
-            //     }
-            // })
-            // cbox.addEventListener('input');
-
-            // if (cbox.checked = "true"){
-            //     text1.style.backgroundColor = "red";
-
-            // } else if (cbox.unchecked = "true"){
-            //     text1.style.backgroundColor = "blue";
-            // }
-
-
         </script>
     </body>
 </html>

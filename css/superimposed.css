@@ -1,0 +1,77 @@
+/* .lato-regular {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.glyph{
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
+} */
+
+#container{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=text]{
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(66, 66, 66);
+    font-family: Arial, Helvetica, sans-serif;
+    color: azure;
+    height: 30vh;
+    /* text-align: left; */
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+}
+
+#controls{
+    width: 15vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: azure;
+}
+
+.ctrlPnl{
+    background-color: rgb(66, 66, 66);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    /* opacity: .2; */
+
+}
+
+#fontPairingControls{
+    height: 30vh;
+    overflow-y: scroll;
+}
+
+
+.textbox{
+    font-size: 100px;
+    position: fixed;
+    margin: 0;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    display: block;
+    line-break: auto;
+    text-wrap: wrap;
+
+    opacity: .2;
+}
+
+.hideText{
+    visibility: hidden;
+}
