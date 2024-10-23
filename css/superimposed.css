@@ -69,7 +69,7 @@ input[type=text]{
     line-break: auto;
     text-wrap: wrap;
 
-    opacity: .05;
+    opacity: .02;
 }
 
 .hideText{
